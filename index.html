@@ -240,7 +240,7 @@
                                     <li class="d-none d-sm-inline-block">
                                         <i class="fas fa-envelope"></i>
                                         <b>Email:</b>
-                                        <a href="mailto:klanohelp@gmail.com">klanohelp@gmail.com</a>
+                                        <a href="mailto:ksharper@studentmba.org">shaferc141@gmail.com</a>
                                     </li>
                                 </ul>
                             </div>
@@ -697,29 +697,30 @@
                                 <div class="input-wrap">
                                     <div class="row">
                                         <div class="form-group col-12">
-                                            <input type="text" class="form-control" name="name" id="name" placeholder="Your Name">
-                                            <i class="fal fa-user"></i>
+                                            <input type="text" id="sender_name" class="form-control" name="sender_name" id="sender_name" placeholder="Your Name" required>
+                                            <i class="fas fa-user"></i>
                                         </div>
                                         <div class="form-group col-12">
-                                            <input type="email" class="form-control" name="email" id="email" placeholder="Email Address">
-                                            <i class="fal fa-envelope"></i>
+                                            <input type="email" id="sender_email" class="form-control" name="sender_email" id="email" placeholder="Email Address" required>
+                                            <i class="fas fa-envelope"></i>
                                         </div>
                                         <div class="form-group col-12">
-                                            <select name="subject" id="subject" class="form-select">
+                                            <select name="sender_service" id="sender_service" class="form-select" required>
                                                 <option value="" disabled="disabled" selected="selected" hidden>Choose Service</option>
                                                 <option value="Home Cleaning">Home Cleaning</option>
                                                 <option value="Window Cleaning">Window Cleaning</option>
                                                 <option value="Bathroom Cleaning">Bathroom Cleaning</option>
                                                 <option value="Office Cleaning">Office Cleaning</option>
                                             </select>
-                                            <i class="fal fa-chevron-down"></i>
+                                            <i class="fas fa-chevron-down"></i>
                                         </div>
                                         <div class="form-group col-12">
-                                            <input type="text" class="form-control" name="location" id="location" placeholder="Location">
-                                            <i class="fal fa-location-dot"></i>
+                                            <input type="tel" class="form-control" name="sender_phone_number" id="sender_phone_number" placeholder="123-4567-8901" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" required>
+                                            <i class="fas fa-phone"></i>
                                         </div>
                                         <div class="form-btn col-12">
-                                            <button class="th-btn btn-fw">
+                                            <button class="th-btn btn-fw" 
+                                            onclick="sendMail();">
                                                 Submit<i class="fas fa-arrow-up-right ms-2"></i>
                                             </button>
                                         </div>
@@ -1535,7 +1536,7 @@
                                 <div class="box-content">
                                     <h3 class="box-title">Contact</h3>
                                     <p class="box-text">
-                                        <a href="mailto:">klanohelp@gmail.com</a>
+                                        <a href="mailto:">shaferc141@gmail.com</a>
                                         <a href="tel:+9412379773">+9412379773</a>
                                     </p>
                                 </div>
@@ -1565,7 +1566,7 @@
                                 <div class="th-widget-about">
                                     <div class="about-logo">
                                         <a href="home-house-cleaner.html">
-                                            <img src="https://html.themeholy.com/klano/demo/assets/img/logo-footer.svg" alt="Klano">
+                                            <img src="assets/img/hero/logo.png" alt="Klano">
                                         </a>
                                     </div>
                                     <p class="about-text">We're your trusted a cleaning company, dedicated to any kind of a consistently delivering exceptional all category good cleaning service.</p>
@@ -1587,7 +1588,7 @@
                             </div>
                         </div>
                         <div class="col-md-6 col-xl-auto">
-                            <div class="widget widget_nav_menu footer-widget">
+                            <!-- <div class="widget widget_nav_menu footer-widget">
                                 <h3 class="widget_title">Quick Links</h3>
                                 <div class="menu-all-pages-container">
                                     <ul class="menu">
@@ -1611,7 +1612,7 @@
                                         </li>
                                     </ul>
                                 </div>
-                            </div>
+                            </div> -->
                         </div>
                         <div class="col-md-6 col-xl-auto">
                             <div class="widget widget_nav_menu footer-widget">
@@ -1619,22 +1620,22 @@
                                 <div class="menu-all-pages-container">
                                     <ul class="menu">
                                         <li>
-                                            <a href="service-details.html">Home Cleaning</a>
+                                            <a href="#service-sec">Home Cleaning</a>
                                         </li>
                                         <li>
-                                            <a href="service-details.html">Office Cleaning</a>
+                                            <a href="#service-sec">Office Cleaning</a>
                                         </li>
                                         <li>
-                                            <a href="service-details.html">Kitchen Cleaning</a>
+                                            <a href="#service-sec">Kitchen Cleaning</a>
                                         </li>
                                         <li>
-                                            <a href="service-details.html">Window Cleaning</a>
+                                            <a href="#service-sec">Window Cleaning</a>
                                         </li>
                                         <li>
-                                            <a href="service-details.html">Bathroom Cleaning</a>
+                                            <a href="#service-sec">Bathroom Cleaning</a>
                                         </li>
                                         <li>
-                                            <a href="service-details.html">Wall Cleaning</a>
+                                            <a href="#service-sec">Wall Cleaning</a>
                                         </li>
                                     </ul>
                                 </div>
@@ -1681,5 +1682,35 @@
         <script src="assets/js/vendor/jquery-3.7.1.min.js"></script>
         <script src="assets/js/app.min.js"></script>
         <script src="index.js"></script>
+        <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+<script type="text/javascript">
+    (function() {
+        // https://dashboard.emailjs.com/admin/account
+        emailjs.init('CYfT3onImX-UZ9yiE');
+    })();
+</script>
+<script type="text/javascript">
+    function sendMail(){
+        (function(){
+            emailjs.init('CYfT3onImX-UZ9yiE')
+        })();
+
+        var params = {
+            sender_name: document.querySelector("#sender_name").value,
+            sender_phone_number:document.querySelector("#sender_phone_number").value,
+            sender_service:document.querySelector("#sender_service").value,
+            to: "ksharper@studentmba.org",
+            client:"Shafer Cleaning",
+            sender_email: document.querySelector("#sender_email").value,
+        }
+        var serviceID = "service_103z8xr"
+        var templateID = "template_lrelc7p"
+        emailjs.send(serviceID,templateID,params)
+        .then(res => {
+            alert("Email Sent")
+        })
+        .catch(err => console.log(err))
+    }
+</script>
     </body>
 </html>
