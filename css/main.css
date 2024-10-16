@@ -1105,6 +1105,9 @@ textarea.is-invalid {
   color: var(--title-color);
   padding-left: 18px
 }
+.th-mobile-menu ul li a:hover{
+  background-color: #068FFF;
+}
 
 .th-mobile-menu ul li a:before {
   content: '\f105';
@@ -4740,7 +4743,7 @@ ul.widget_rss,ul.wp-block-rss,ol.widget_rss,ol.wp-block-rss {
 }
 
 .main-menu a:hover {
-  color: var(--theme-color)
+  background-color: var(--theme-color)
 }
 
 .main-menu>ul>li {
